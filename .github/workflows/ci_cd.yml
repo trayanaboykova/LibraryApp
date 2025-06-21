@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  build_test:
 
     runs-on: ubuntu-latest
 
@@ -21,6 +21,8 @@ jobs:
         cache: 'npm'
     - name: Install dependencies
       run: npm install
+    - name: Install Playwright browsers
+      run: npx playwright install
     - name: Start the Backend
       run: npm run start-be &
     - name: Start the Frontend
